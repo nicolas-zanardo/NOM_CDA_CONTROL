@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello SecurityController!{% endblock %}
+
+{% block body %}
+    <main class="d-flex justify-content-center mt-5">
+        <div class="card p-5 shadow">
+            <h2>Inscription</h2>
+            <hr>
+            {{ form_start(form) }}
+            {{ form_rest(form) }}
+            {{ form_end(form) }}
+        </div>
+    </main>
+
+
+{% endblock %}

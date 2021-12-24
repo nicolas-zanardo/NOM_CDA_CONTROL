@@ -2,8 +2,8 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
+        <title>{% block title %}Les villes vignes{% endblock %}</title>
+        <link rel="icon" type="image/x-icon" href="{{asset('build/favicon.ico')}}">
         {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
         {% block stylesheets %}
             {{ encore_entry_link_tags('app') }}
@@ -12,8 +12,35 @@
         {% block javascripts %}
             {{ encore_entry_script_tags('app') }}
         {% endblock %}
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+              integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
+              crossorigin="anonymous" referrerpolicy="no-referrer"/>
     </head>
     <body>
+    <header>
+        {% if 'user' in app.request.uri %}
+            {% include "shared/navbar/_navbar-user.html.twig" %}
+        {% elseif 'admin' in app.request.uri %}
+            {% include "shared/navbar/_navbar-admin.html.twig" %}
+        {% else %}
+            {% include "shared/navbar/_navbar-shop.html.twig" %}
+        {% endif %}
+    </header>
+
+    {% for message in app.flashes('success') %}
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <span>{{ message }}</span>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    {% endfor %}
+
+    <div class="container vh-100">
         {% block body %}{% endblock %}
+    </div>
+
+    <footer class="mt-5 bg-black d-flex justify-content-center p-3">
+        <div>E-shop IMIE</div>
+    </footer>
     </body>
 </html>

@@ -1,0 +1,25 @@
+/* navbar */
+
+.logo {
+  height: 40px;
+}
+
+.navbar-utility {
+  color: lightgray;
+  padding: 0.2rem;
+  &:hover {
+    color: white;
+  }
+}
+
+.btn-dash {
+  transition: transform 0.3s;
+  cursor: pointer;
+  &:hover {
+    transform: scale(1.05);
+  }
+}
+
+.preline {
+  white-space: pre-line;
+}

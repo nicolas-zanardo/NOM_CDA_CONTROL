@@ -1,0 +1,22 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="{{ path('home') }}"><img src="{{ asset('build/logo/logo.png') }}" alt="les vieilles vignes" class="logo"> <span>Les vieilles vignes</span></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarColor01">
+            <ul class="navbar-nav me-auto">
+                <li class="nav-item">
+                    <a class="nav-link {{ ('profile' in app.request.uri)? "active" : "" }}" href="{{ path('user') }}">Profils</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link {{ ('commandes' in app.request.uri)? "active" : "" }}" href="{{ path("user_commands") }}">Commande</a>
+                </li>
+            </ul>
+            <a href="{{ path('security_logout') }}">
+                <div  class="navbar-utility d-flex align-items-center">Déconnexion<i class="fas fa-sign-out-alt ms-2"></i></div>
+            </a>
+        </div>
+    </div>
+</nav>

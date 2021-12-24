@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+    <div class="card mt-5 p-3">
+        <table class="table" data-controller="datatable">
+            <thead>
+            <tr>
+                <th>Nom</th>
+                <th>prix</th>
+            </tr>
+            </thead>
+            <tbody class="d-flex border-0">
+            {% for product in products %}
+                <tr class="d-flex flex-column m-2 border p-3 shadow">
+                    <td>
+                        <div class="d-flex flex-column align-items-center">
+                            <h2 class="border-bottom">{{ product.name }}</h2>
+                            <div>
+                                <img src="{{ asset('images/images-upload/' ~ product.img) }}" alt="{{ product.name }}"  height="150">
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="visually-hidden">{{ product.price }}</div>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <h3 class="mx-1">{{ product.price }} €</h3>
+                            <a href="{{ path("shop_product", {'slug': product.slug}) }}" class="btn btn-primary me-1"><i class="fas fa-eye"></i></a>
+                            <a href="#" class="btn btn-dark ms-1"><i class="fas fa-cart-arrow-down"></i></a>
+                        </div>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

@@ -1,0 +1,22 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="{{ path('home') }}"><img src="{{ asset('build/logo/logo.png') }}" alt="les vieilles vignes" class="logo"> <span>Les vieilles vignes</span></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarColor01">
+            <ul class="navbar-nav me-auto">
+                <li class="nav-item">
+                    <a class="nav-link active" href="{{ path('home') }}">Nos produits</a>
+                </li>
+            </ul>
+            <div class="d-flex align-items-center">
+                <a href="#" class="navbar-utility d-flex"><div class="d-flex align-items-center"></div><i class="fas fa-shopping-cart fa-lg ms-2"></i></a>
+                <span class="mx-3">|</span>
+                <a href="{{ (is_granted('ROLE_USER'))? path('user'): path('security_login') }}" class="navbar-utility"><i class="fas fa-user-circle fa-2x"></i></a>
+            </div>
+        </div>
+    </div>
+</nav>
+

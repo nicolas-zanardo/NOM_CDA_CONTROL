@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <main class="mt-5">
+        <h1>{{ product.name }}</h1>
+        <hr>
+        <div class="row">
+            <div class="col-12 col-lg-6 px-5">
+                <img src="{{ asset('images/images-upload/' ~ product.img) }}" alt="{{ product.name }}">
+            </div>
+            <div class="col-12 col-lg-6 px-5">
+                <h5>Description</h5>
+                <hr>
+                <div class="preline">
+                    {{ product.description }}
+                </div>
+                <div class="d-flex justify-content-between mt-3 align-items-center bg-light shadow">
+                    <h2 class="m-2 mx-3">{{ product.price }} €</h2> <button class="btn btn-primary m-2"><i class="fas fa-cart-arrow-down"></i></button>
+                </div>
+            </div>
+        </div>
+    </main>
+{% endblock %}
